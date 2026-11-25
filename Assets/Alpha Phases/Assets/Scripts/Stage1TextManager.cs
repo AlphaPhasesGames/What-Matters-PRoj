@@ -161,11 +161,12 @@ namespace Alpha.Phases.What.Matters
                case 8: // Look at lamp
                     textPanal.gameObject.SetActive(true);
                     backwardsButton.gameObject.SetActive(false);
+                    StartCoroutine(DelayTextButton());
                     break;
 
-               case 9: // Look at carrot
+               case 9: // Properties Panal
                     textPanal.gameObject.SetActive(true);
-                    backwardsButton.gameObject.SetActive(false);
+                    backwardsButton.gameObject.SetActive(true);
                    break;
                case 10: // Look at water and sugar
                     playerModel.gameObject.SetActive(false);
@@ -259,7 +260,7 @@ namespace Alpha.Phases.What.Matters
                 forwardButton.gameObject.SetActive(false);
 
                 // Only run DelayTextButton if the next arrayPos is not 2
-                if (arrayPos != 2 & arrayPos != 6 & arrayPos != 8 & arrayPos != 9 & arrayPos != 10 & arrayPos != 11 & arrayPos != 12 & arrayPos != 13)
+                if (arrayPos != 2 & arrayPos != 6 & arrayPos != 7 & arrayPos != 9 & arrayPos != 10 & arrayPos != 11 & arrayPos != 12 & arrayPos != 13)
                 {
                     StartCoroutine(DelayTextButton());
                 }
