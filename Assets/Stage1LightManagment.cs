@@ -22,8 +22,8 @@ namespace Alpha.Phases.What.Matters
 
         [Header("Dialogue")]
         public Stage1TextManager textMan;
-      //  public int correctDialogue;
-      //  public int incorrectDialogue;
+        public int correctDialogue;
+        public int incorrectDialogue;
 
         private void Awake()
         {
@@ -33,8 +33,8 @@ namespace Alpha.Phases.What.Matters
                     () => ToggleTick(statement));
             }
 
-            // confirm.onClick.AddListener(CheckSelection);
-            confirmAndClose.onClick.AddListener(CloseView);
+            //confirm.onClick.AddListener(CheckSelection);
+            confirmAndClose.onClick.AddListener(ConfirmSelection);
 
             ResetSelection();
         }
@@ -78,5 +78,21 @@ namespace Alpha.Phases.What.Matters
         {
             textMan.CloseTableVeiw();
         }
+
+        public void ConfirmSelection()
+        {
+            if (CheckSelection())
+            {
+                textMan.positionChanged = true;
+                textMan.arrayPos = correctDialogue;
+            }
+            else
+            {
+                textMan.positionChanged = true;
+                textMan.arrayPos = incorrectDialogue;
+               // CloseView();
+            }
+        }
+
     }
 }

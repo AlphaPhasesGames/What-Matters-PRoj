@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 namespace Alpha.Phases.What.Matters
 {
@@ -12,6 +13,11 @@ namespace Alpha.Phases.What.Matters
         public Stage1TextManager textman;
         private void OnMouseDown()
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+            textman.ResetBools();
             textman.positionChanged = true;
             textman.arrayPos = arrayposition;
             onClicked.Invoke();

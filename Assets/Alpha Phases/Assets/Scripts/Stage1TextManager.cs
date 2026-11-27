@@ -150,7 +150,7 @@ namespace Alpha.Phases.What.Matters
                 case 6:
                     StartCoroutine(EnableCross());
                     break;
-                case 7: // lamp and carrot table look
+                case 7: // lamp table look
                     playerModel.gameObject.SetActive(false);
                     playerCont.moveSpeed = 0;
                     textPanal.gameObject.SetActive(true);
@@ -168,65 +168,72 @@ namespace Alpha.Phases.What.Matters
                     textPanal.gameObject.SetActive(true);
                     backwardsButton.gameObject.SetActive(true);
                    break;
-               case 10: // Look at water and sugar
-                    playerModel.gameObject.SetActive(false);
-                    playerCont.moveSpeed = 0;
+               case 10: // Lamp Correct
                     textPanal.gameObject.SetActive(true);
-                    closeTableView.gameObject.SetActive(true);
-                    backwardsButton.gameObject.SetActive(false);
-                    break;
-               case 11: // Look at water
-                    textPanal.gameObject.SetActive(true);
-                    backwardsButton.gameObject.SetActive(false);
-                    break;
-               case 12: // Look at sugar
-                    textPanal.gameObject.SetActive(true);
-                   backwardsButton.gameObject.SetActive(false);
-                   break;
-               case 13: // Look at balloon and shadow
-                    playerModel.gameObject.SetActive(false);
-                    playerCont.moveSpeed = 0;
-                    textPanal.gameObject.SetActive(true);
-                    closeTableView.gameObject.SetActive(true);
-                    backwardsButton.gameObject.SetActive(false);
-                    break;
-               case 14: // Look at balloon
-                    textPanal.gameObject.SetActive(true);
-                    backwardsButton.gameObject.SetActive(false);
-
-                    break;
-               case 15:// Look at shadow
-                    textPanal.gameObject.SetActive(true);
-                    backwardsButton.gameObject.SetActive(false);
-                    break;
-                case 16:// Look at table with paper
-                    playerModel.gameObject.SetActive(false);
-                    playerCont.moveSpeed = 0;
-                    textPanal.gameObject.SetActive(true);
-                    closeTableView.gameObject.SetActive(true);
-                    backwardsButton.gameObject.SetActive(false);
-                    break;
-                case 17:// Look at paper itself
-                    textPanal.gameObject.SetActive(true);
-                    backwardsButton.gameObject.SetActive(false);
-                    break;
-                case 18:// looked at all tables
-                    textPanal.gameObject.SetActive(true);
-                    backwardsButton.gameObject.SetActive(false);
-                    break;
-                case 19:// Look at check list
-                    textPanal.gameObject.SetActive(true);
-                    backwardsButton.gameObject.SetActive(false);
-                    break;
-                case 20:// Wrong Check list
-                    textPanal.gameObject.SetActive(true);
-                    backwardsButton.gameObject.SetActive(false);
+                    backwardsButton.gameObject.SetActive(true);
                     StartCoroutine(EnableCross());
-                    break;                  
-                case 21:// correct Check List
+                    break;
+               case 11: // Incorrect, come back later.
+                    textPanal.gameObject.SetActive(true);
+                   
+                    backwardsButton.gameObject.SetActive(false);
+                  
+                    break;
+               case 12: // Look at shadow Table
+                    playerModel.gameObject.SetActive(false);
+                    playerCont.moveSpeed = 0;
+                    textPanal.gameObject.SetActive(true);
+                    closeTableView.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(false);
+                    break;
+               case 13: // Look atshadow props
                     textPanal.gameObject.SetActive(true);
                     backwardsButton.gameObject.SetActive(false);
                     StartCoroutine(DelayTextButton());
+
+                    break;
+               case 14: // shadow statements
+                    textPanal.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(false);
+                   
+                    break;
+               case 15:// correct shadow
+                    textPanal.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(false);
+                    break;
+                case 16:// incorrect shadow           
+                    playerModel.gameObject.SetActive(false);
+                    playerCont.moveSpeed = 0;
+                    textPanal.gameObject.SetActive(true);
+                    closeTableView.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(false);
+                    break;
+                case 17:// look at shadow itself
+                    textPanal.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(true);
+                    StartCoroutine(DelayTextButton());
+                    break;
+                case 18:// shadow Properties
+                    textPanal.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(false);
+                    StartCoroutine(EnableCross());
+                    break;
+                case 19:// Look at sugar table
+                    playerModel.gameObject.SetActive(false);
+                    playerCont.moveSpeed = 0;
+                    textPanal.gameObject.SetActive(true);
+                    closeTableView.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(false);
+                    break;
+                case 20:// Look at sugar
+                    textPanal.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(false);
+                    StartCoroutine(DelayTextButton());
+                    break;                  
+                case 21:// Sugar properties
+                    textPanal.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(false);
+                    StartCoroutine(EnableCross());
                     break;
                 case 22:
                     camMan.GoToTank();
@@ -260,7 +267,7 @@ namespace Alpha.Phases.What.Matters
                 forwardButton.gameObject.SetActive(false);
 
                 // Only run DelayTextButton if the next arrayPos is not 2
-                if (arrayPos != 2 & arrayPos != 6 & arrayPos != 7 & arrayPos != 9 & arrayPos != 10 & arrayPos != 11 & arrayPos != 12 & arrayPos != 13)
+                if (arrayPos != 2 & arrayPos != 6 & arrayPos != 7 & arrayPos != 9 & arrayPos != 10 & arrayPos != 11 & arrayPos != 12 & arrayPos != 13 & arrayPos != 15 & arrayPos != 17 & arrayPos != 18)
                 {
                     StartCoroutine(DelayTextButton());
                 }
@@ -399,6 +406,13 @@ namespace Alpha.Phases.What.Matters
             SceneManager.LoadScene("Stage 2 newspapers");
         }
 
+        public void GoToPos10() //  this function fires to move the text box to posiiton 10 or 9 in the array.
+        {
+            positionChanged = true;
+            arrayPos = 9;
+        }
+
+        
     }
 }
 
